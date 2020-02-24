@@ -1,0 +1,43 @@
+#app settings
+app:
+  name: qurl
+  version: 1.1.0
+  env: local
+server:
+  port: 8000
+logging:
+  level: 5  #0 panic 0 fatal 1 error 2 warn 3 info 4 debug 5 trace 6
+  report-caller: false
+database:
+  dsn: "root:@tcp(database:3306)/qurl?parseTime=true&loc=Asia%2FShanghai&multiStatements=true"
+  maxIndle: 10
+  maxOpen: 50
+  maxLifetime: 50  #单位秒 If d <= 0, connections are reused forever.  
+  showSQL: true
+openapi:
+  spec:
+    title: 短网址服务
+    desc: 短网址服务
+    contact:
+      name: Veily
+      email: drmfly.liw@gmail.com
+      url: https://qurl.im
+    license:
+      name: test
+      url: test
+    version: 1.0
+  tags:
+    - name: Mobile
+      desc: 移动端接口
+    - name: Admin
+      desc: 管理后台接口
+  ui:
+    api: /apidocs.json
+    dist: /Users/liwei/MyWorkspace/swagger-ui/dist/
+    #    dist: ./api/swagger-ui/
+    entrypoint: /apidocs/
+admin:
+  aeskey: eb1be67b2b26846e51b4b6ffe5b38be2
+qurl:
+  prefix: http://localhost:8000/qurl/
+  cache-size: 500
